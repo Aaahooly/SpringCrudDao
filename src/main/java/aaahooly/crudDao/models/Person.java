@@ -56,16 +56,6 @@ public class Person {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", age=" + age +
-                '}';
-    }
-
     public void setName(String name) {
         this.name = name;
     }
