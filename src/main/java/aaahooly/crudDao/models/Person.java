@@ -1,9 +1,10 @@
 package aaahooly.crudDao.models;
 
-
 import javax.validation.constraints.*;
 
 public class Person {
+
+
     private  int id;
 
     @NotEmpty(message = "Name not be empty") // <- Говори о том что поле не может быть пустым
@@ -13,13 +14,9 @@ public class Person {
     @Email(message = "Email should be valid")
     private String email;
     @Min(value = 0, message = "Age should be greater than 0")
-    @Max(value = 100, message = "Столько не живут!")
     private int age;
 
-    public Person(int id, String name, String email, int age) {
-
-
-        this.id = id;
+    public Person(String name, String email, int age) {
         this.name = name;
         this.age = age;
         this.email = email;
