@@ -16,7 +16,7 @@ public class PersonMapper implements RowMapper<Person> {
     //Так же поменять тип возращаемого значения на модель, какую параметризовали интерфейс.
     @Override
     public Person mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-        return new Person(resultSet.getString("name"),
-                resultSet.getString("email"), resultSet.getInt("age"));
+        return new Person(resultSet.getInt("id"),resultSet.getString("name"),
+                resultSet.getInt("age"),resultSet.getString("email"));
     }
 }

@@ -16,7 +16,8 @@ public class Person {
     @Min(value = 0, message = "Age should be greater than 0")
     private int age;
 
-    public Person(String name, String email, int age) {
+    public Person(int id, String name, int age, String email ) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;
