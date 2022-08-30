@@ -1,7 +1,6 @@
 package aaahooly.crudDao.dao;
 
 import aaahooly.crudDao.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -39,13 +38,13 @@ public class PersonDAO {
     //Использование тимплейта позволяет не использовать prepareStatement, Достаточно написать
     //Sql запрос(1 арг), 2 аргумент  это сами поля модели.
     public void save(Person person) {
-        jdbcTemplate.update("INSERT INTO Person(name,age,email) VALUES(?,?,?)", person.getName(), person.getAge(),
-                person.getEmail());
+        jdbcTemplate.update("INSERT INTO Person(name,age,email,address) VALUES(?,?,?,?)", person.getName(), person.getAge(),
+                person.getEmail(),person.getAddress());
     }
 
     public void update(int id, Person person) {
-        jdbcTemplate.update("UPDATE Person SET name=?, age=?,email=? where id=?", person.getName(), person.getAge(),
-                person.getEmail(), id);
+        jdbcTemplate.update("UPDATE Person SET name=?, age=?,email=?,address=? where id=?", person.getName(), person.getAge(),
+                person.getEmail(),person.getAddress(), id);
     }
 
     public void delete(int id) { // DELETE FROM ID
@@ -91,7 +90,7 @@ public class PersonDAO {
         List<Person> people = new ArrayList<>();
 
         for (int i = 0; i < 1000; i++) {
-            people.add(new Person(i, "name" + i, 30, "test" + i + "@yandex.ru"));
+            people.add(new Person(i, "name" + i, 30, "test" + i + "@yandex.ru", "address" ));
         }
         return people;
 

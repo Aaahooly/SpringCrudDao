@@ -5,7 +5,7 @@
     <title>New person</title>
 </head>
 <body>
-
+<!-- Форма создания нового человека-->
 <form th:method="POST" th:action="@{/people}" th:object="${person}">
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{name}" id="name"/>
@@ -18,6 +18,10 @@
     <label for="email">Enter email: </label>
     <input type="text" th:field="*{email}" id="email"/>
     <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+    <br/>
+    <label for="address">Enter address: </label>
+    <input type="text" th:field="*{address}" id="address"/>
+    <div style="color:darkmagenta" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</div>
     <br/>
     <input type="submit" value="Create!"/>
 </form>
